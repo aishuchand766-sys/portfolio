@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #fff5f8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #ffb6c1;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .assignments {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .assignment {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .assignment input {
+      margin-top: 1rem;
+    }
+
+    .contact-info {
+      text-align: center;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #ff5e78;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fff5f8;
+      color: #555;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://1drv.ms/i/c/456e04cbd3510d38/EaoiXJN0uBlEtIBp0NOlTGEBA3LPiW-22VlvzDgdTnhu0Q" alt="Profile Photo">
+    <h1>My Portfolio</h1>
+    <p>Student | Learner | Tech Enthusiast </p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am Aishu Chand, a B.Tech 3rd-semester student
+     with keen interest in technology , innovation,and practical
+     problem-solving.
+    Throughout my academic journey so far, I have been
+     building a strong foundation in programming , 
+     data structures .
+     </p>
+    <p>    I am passionate about technology, innovation
+     and applying my learning to real world projects.
+    This portfolio showcases my journey, skills, and assignments
+ that reflect my learning and creativity.</p>
+
+
+  </section>
+
+  <section id="assignments">
+    <h2>My Assignments</h2>
+    <div class="assignments">
+      <div class="assignment">
+        <h3>Assignment 1</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 1)">
+        <div id="preview1"></div>
+      </div>
+      <div class="assignment">
+        <h3>Assignment 2</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 2)">
+        <div id="preview2"></div>
+      </div>
+      <div class="assignment">
+        <h3>Assignment 3</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 3)">
+        <div id="preview3"></div>
+      </div>
+      <div class="assignment">
+        <h3>Assignment 4</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 4)">
+        <div id="preview4"></div>
+      </div>
+      <div class="assignment">
+        <h3>Assignment 5</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 5)">
+        <div id="preview5"></div>
+      </div>
+      <div class="assignment">
+        <h3>Assignment 6</h3>
+        <input type="file" accept="image/*,video/*" onchange="previewFile(event, 6)">
+        <div id="preview6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-info">
+      <p>You can reach me through the following platforms:</p>
+      <a href="mailto:your-email@example.com">📧 Email</a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 My Portfolio | Designed with 💖</p>
+  </footer>
+
+  <script>
+    function previewFile(event, index) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const preview = document.getElementById(`preview${index}`);
+      preview.innerHTML = '';
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        if (file.type.startsWith('image/')) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.width = '100%';
+          img.style.borderRadius = '10px';
+          preview.appendChild(img);
+        } else if (file.type.startsWith('video/')) {
+          const video = document.createElement('video');
+          video.src = e.target.result;
+          video.controls = true;
+          video.style.width = '100%';
+          preview.appendChild(video);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
